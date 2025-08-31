@@ -108,8 +108,8 @@ Modify the sidebar links with your social media profiles:
 sidebar: {
   links: [
     {
-      name: 'github',
-      link: 'https://github.com/yourusername',
+      name: "github",
+      link: "https://github.com/yourusername",
       icon: Github,
     },
     // Add or remove social links as needed
@@ -126,11 +126,11 @@ projects: {
   projects: [
     {
       id: 1,
-      title: 'Project Name',
+      title: "Project Name",
       description:
-        'Project description.\n\n Technologies Used: Tech1, Tech2, Tech3',
-      image: '/projects-imgs/your-image.png', // Add image to public/projects-imgs/
-      previewLink: 'https://project-url.com',
+        "Project description.\n\n Technologies Used: Tech1, Tech2, Tech3",
+      image: "/projects-imgs/your-image.png", // Add image to public/projects-imgs/
+      previewLink: "https://project-url.com",
     },
     // Add more projects
   ];
@@ -146,9 +146,9 @@ technologies: {
   skills: [
     {
       id: 1,
-      name: 'technology-name',
-      src: '/skills/icon.svg', // Add icon to public/skills/
-      link: 'https://link-to-technology-info',
+      name: "technology-name",
+      src: "/skills/icon.svg", // Add icon to public/skills/
+      link: "https://link-to-technology-info",
     },
     // Add more skills
   ];
@@ -236,7 +236,7 @@ The following environment variables are required:
 
 ## Contact
 
-Aga Kadela
+Destiny Abhuluimen
 
 - Website: [agakadela.com](https://agakadela.com)
 - Email: aga.kadela.dev@gmail.com
@@ -257,4 +257,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by Aga Kadela
+Made with ❤️ by Destiny Abhuluimen

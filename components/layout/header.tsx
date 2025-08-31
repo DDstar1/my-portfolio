@@ -1,7 +1,7 @@
 "use client";
 import useHash from "@/hooks/use-hash";
 import { cn } from "@/lib/utils";
-import { File, Home, LucideSend, User } from "lucide-react";
+import { BookOpen, File, Home, LucideSend, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/public/imgs/logo.webp";
@@ -9,25 +9,31 @@ import logo from "@/public/imgs/logo.webp";
 const navItems = [
   {
     id: 1,
-    name: "Home.tsx",
+    name: "Home",
     path: "#home",
     icon: Home,
   },
   {
     id: 2,
-    name: "About.tsx",
+    name: "About",
     path: "#about",
     icon: User,
   },
   {
     id: 3,
-    name: "Projects.tsx",
+    name: "Projects",
     path: "#projects",
     icon: File,
   },
   {
     id: 4,
-    name: "Contact-Me.tsx",
+    name: "Blog",
+    path: "https://blog.abhuluimendestiny.site", // replace with your actual blog link
+    icon: BookOpen,
+  },
+  {
+    id: 5,
+    name: "Contact-Me",
     path: "#contact",
     icon: LucideSend,
     isRight: true,
@@ -52,17 +58,30 @@ export default function Header() {
         {navItems.map((item) => {
           const isActive =
             item.path === hash || (item.path === "#home" && hash === "");
-          return (
-            <Link
+
+          const isExternal = item.path.startsWith("http");
+
+          const linkClasses = cn(
+            "relative h-full w-fit md:min-w-40 border-x flex items-center justify-center gap-2 text-muted-foreground hover:bg-background px-4",
+            isActive && "text-foreground bg-background hover:bg-background",
+            item.isRight && "ml-auto"
+          );
+
+          return isExternal ? (
+            <a
               key={item.id}
               href={item.path}
-              scroll
-              className={cn(
-                "relative h-full w-fit md:min-w-40 border-x flex items-center justify-center gap-2 text-muted-foreground hover:bg-background px-4",
-                isActive && "text-foreground bg-background hover:bg-background",
-                item.isRight && "ml-auto"
-              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClasses}
             >
+              <item.icon size={20} className="text-primary-foreground" />
+              <span className="hidden h-full md:flex items-center justify-center text-sm">
+                {item.name}
+              </span>
+            </a>
+          ) : (
+            <Link key={item.id} href={item.path} scroll className={linkClasses}>
               <item.icon size={20} className="text-primary-foreground" />
               <span className="hidden h-full md:flex items-center justify-center text-sm">
                 {item.name}

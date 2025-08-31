@@ -1,4 +1,4 @@
-import { Github, Linkedin, Youtube } from "lucide-react";
+import { Github, Linkedin, Youtube, BookOpen } from "lucide-react";
 
 import cw from "@/public/projects-imgs/cw.webp";
 import retrocech from "@/public/projects-imgs/retrocech.webp";
@@ -16,18 +16,13 @@ const data = {
     links: [
       {
         name: "github",
-        link: "https://github.com/agakadela",
+        link: "https://github.com/DDstar1",
         icon: Github,
       },
       {
         name: "linkedin",
-        link: "https://www.linkedin.com/in/agakadela/",
+        link: "https://www.linkedin.com/in/destiny-abhuluimen-20bb3726a",
         icon: Linkedin,
-      },
-      {
-        name: "youtube",
-        link: "https://www.youtube.com/@agakadela",
-        icon: Youtube,
       },
     ],
   },

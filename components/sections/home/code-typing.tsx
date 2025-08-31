@@ -8,7 +8,7 @@ const defaultProps = {
 };
 
 const codeSnippet = `// Welcome to my AI-Powered Portfolio! 🚀
-import { NextDeveloper } from 'agakadela';
+import { NextDeveloper } from 'Destiny';
 import { AIExpertise } from '@/skills';
 
 function createAmazingWebApp() {

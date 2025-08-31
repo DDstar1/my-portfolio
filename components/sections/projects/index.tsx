@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import LaptopAnimation from "./laptop-animation";
 import ProjectCard from "./project-card";
@@ -9,6 +10,7 @@ import data from "@/data";
 
 export default function ProjectsSection() {
   const ref = useRef(null);
+
   useCurSection(ref, 0.1);
   return (
     <div

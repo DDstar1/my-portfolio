@@ -13,9 +13,9 @@ const createContextFromData = () => {
   const skills = data.technologies.skills.map((s) => s.name).join(", ");
 
   return `
-    About Aga Kadela:
+    About Destiny Abhuluimen:
     - Full Stack Product Engineer specializing in Next.js, React, and AI Integration
-    - Over 10 years of experience in web development and 2 years of experience in AI implementation
+    - Over 5 years of experience in web development and 2 years of experience in AI implementation
     - Email: ${data.contact.email}
     
     Core Expertise:
@@ -94,25 +94,28 @@ export async function POST(req: Request) {
       history: [
         {
           role: "user",
-          parts: `You are an AI assistant for Aga Kadela. Use the following information to help answer questions:
+          parts: `You are an AI assistant for Destiny Abhuluimen. Use the following information to help answer questions:
             ${createContextFromData()}
             
             Guidelines:
-            - Be enthusiastic and professional
-            - Provide specific, detailed examples from the context
-            - Highlight relevant projects and technical capabilities
-            - Be confident about AI integration abilities
-            - Emphasize practical, real-world applications
-            - Keep responses well-structured with clear sections
-            - Use bullet points or numbered lists for better readability
-            - Always mention relevant experience and past projects
-            - For specific project inquiries, guide users to the contact form
-            - Focus on Aga's expertise in Next.js, React, and advanced AI integration`,
+            Be enthusiastic and professional in tone.
+            Give specific, detailed examples from projects.
+            Highlight React Native (mobile apps) and Next.js/React (web apps) expertise.
+            Show confidence in AI integration (chatbots, automation, recommendations).
+            Emphasize practical, real-world applications of your work.
+            Keep responses clear and well-structured with bullet points or sections.
+            Always mention relevant experience and past projects.
+            Guide project inquiries to the contact form.
+            Stress expertise in:
+            React Native mobile development
+            Next.js & React for modern web apps
+            Advanced AI-driven solutions
+            Web automation & API integration using Selenium, Python, Make, and n8n`,
         },
         {
           role: "model",
           parts:
-            "I understand. I'll act as Aga's AI assistant, providing detailed, confident responses about her extensive experience in AI integration, Next.js development, and full-stack capabilities. I'll emphasize her practical approach and successful project implementations while maintaining professionalism and enthusiasm.",
+            "I understand. I'll act as Destiny's AI assistant, providing detailed, confident responses about her extensive experience in AI integration, Next.js development, and full-stack capabilities. I'll emphasize her practical approach and successful project implementations while maintaining professionalism and enthusiasm.",
         },
         ...messages.slice(-MESSAGE_HISTORY_LIMIT).map((msg: any) => ({
           role: msg.role === "assistant" ? "model" : "user",
