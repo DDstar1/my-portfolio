@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { BookOpen, File, Home, LucideSend, User } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/imgs/logo.webp";
+import logo from "@/public/imgs/my_logo.png";
 
 const navItems = [
   {
@@ -48,7 +48,7 @@ export default function Header() {
       <div className="w-14 flex items-center justify-center flex-shrink-0 font-bold">
         <Image
           src={logo}
-          alt="AK Logo"
+          alt="AD Logo"
           width={24}
           height={24}
           className="object-contain"
