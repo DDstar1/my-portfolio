@@ -2,34 +2,58 @@
 
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Globe } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { StaticImageData } from "next/image";
+import {
+  motion,
+  MotionValue,
+  useMotionValueEvent,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 
-type props = {
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    image: StaticImageData;
-    githubLink?: string;
-    previewLink: string;
-  };
-  i: number; // 👈 new
-  className?: string; // 👈 allow tailwind overrides
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: StaticImageData;
+  githubLink?: string;
+  previewLink: string;
 };
 
-export default function ProjectCard({ project, i, className }: props) {
-  const cardContainer = useRef(null);
-  const imageContainer = useRef(null);
+type Props = {
+  project: Project;
+  i: number;
+  className?: string;
+  progress: MotionValue<number>; // 👈 from useScroll in parent
+  range: [number, number]; // 👈 scroll slice
+  targetScale: number; // 👈 scale factor when scrolled
+};
+
+export default function ProjectCardMobile({
+  project,
+  i,
+  className,
+  progress,
+  range,
+  targetScale,
+}: Props) {
+  const cardContainer = useRef<HTMLDivElement>(null);
+  const imageContainer = useRef<HTMLDivElement>(null);
+
+  const scale = useTransform(progress, range, [1, targetScale]);
+
+  useMotionValueEvent(scale, "change", (latest) => {
+    console.log(`📊 Project "${project.title}" scale:`, latest);
+  });
 
   return (
-    <div
+    <motion.div
       ref={cardContainer}
-      className={`w-full h-fit max-w-[650px] rounded-2xl bg-muted border sticky top-8 ${
+      className={`w-full h-fit max-w-[650px] rounded-2xl bg-muted border sticky ${
         className ?? ""
       }`}
+      style={{ top: `calc(5vh + ${i * 35}px)`, scale }}
     >
       <div className="flex justify-between flex-shrink-0 px-4 pt-2">
         <div className="flex items-center gap-2 text-muted-foreground">
@@ -39,7 +63,7 @@ export default function ProjectCard({ project, i, className }: props) {
         <div className="flex items-center gap-2">
           <span className="block rounded-full size-3 bg-green-500 ml-auto" />
           <span className="block rounded-full size-3 bg-yellow-500" />
-          <span className="block rounded-full size-3 bg-red-500 " />
+          <span className="block rounded-full size-3 bg-red-500" />
         </div>
       </div>
 
@@ -85,6 +109,6 @@ export default function ProjectCard({ project, i, className }: props) {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

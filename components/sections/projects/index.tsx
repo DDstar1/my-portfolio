@@ -5,11 +5,19 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 import LaptopAnimation from "./laptop-animation";
 import ProjectCard from "./project-card";
+import ProjectCardMobile from "./project-card_mobile";
 import useCurSection from "@/hooks/use-cur-section";
 import data from "@/data";
 
 export default function ProjectsSection() {
   const ref = useRef(null);
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+
+    offset: ["start start", "end end"],
+  });
 
   useCurSection(ref, 0.1);
   return (
@@ -39,10 +47,35 @@ export default function ProjectsSection() {
           </p>
         </div>
       </div>
-      <div className="space-y-[60vh]">
-        {data.projects.projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
+      <div className="space-y-[60vh]" ref={container}>
+        {data.projects.projects.map((project, i) => {
+          const targetScale = 1 - (data.projects.projects.length - i) * 0.05;
+          // console.log("targetScale", targetScale);
+          // console.log("scrollYProgress", scrollYProgress);
+          // console.log("range", [i * 0.25, 1]);
+          return (
+            <>
+              {/* Desktop */}
+              <ProjectCard
+                project={project}
+                key={`pd_${i}`}
+                i={i}
+                className="hidden md:block"
+              />
+
+              {/* Mobile */}
+              <ProjectCardMobile
+                project={project}
+                key={`p_${i}`}
+                i={i}
+                className="block md:hidden"
+                progress={scrollYProgress}
+                range={[i * 0.25, 1]}
+                targetScale={targetScale}
+              />
+            </>
+          );
+        })}
       </div>
     </div>
   );

@@ -45,21 +45,14 @@ const data = {
         image: retrocech,
         previewLink: "https://retrocech.com",
       },
-      {
-        id: 3,
-        title: "E-commerce Platform",
-        description:
-          "Worked on one of a biggest e-commerce platform in Poland, as part of a Scrum team for 1.5 years, focusing on checkout and payment workflows. \n\n Technologies Used: Next.js, React.js, Tailwind CSS, Stripe API.",
-        image: ecommerce,
-        previewLink: "https://x-kom.pl",
-      },
+
       {
         id: 4,
         title: "Personal Portfolio Website",
         description:
           "A reliable and polished website that makes it easy for the expert to share their skills and impress potential clients or employers. \n\n Technologies Used: Next.js, React.js, CSS.",
         image: lukaskadela,
-        previewLink: "https://lukaskadela.com",
+        previewLink: "https://abhuluimendestiny.site/",
       },
     ],
   },

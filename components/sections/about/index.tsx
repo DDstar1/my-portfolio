@@ -3,7 +3,7 @@ import useCurSection from "@/hooks/use-cur-section";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import agakadela from "@/public/imgs/agakadela_mini.webp";
+import destiny from "@/public/imgs/my image.jpeg";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -40,7 +40,7 @@ export default function AboutSection() {
               width={600}
               height={600}
               alt="about profile image"
-              src={agakadela}
+              src={destiny}
             />
           </motion.div>
         </div>
@@ -65,7 +65,7 @@ export default function AboutSection() {
             I make sure your product is clean, efficient, and built to last.
             <br />
             <br />
-            <span className="font-semibold">📌 What I Do Best:</span>
+            <span className="font-semibold underline">📌 What I Do Best:</span>
             <br />✅ Build full-stack web & mobile apps with modern stacks{" "}
             <br />✅ Fix broken projects & debug issues quickly <br />✅ Improve
             speed, performance & user experience <br />✅ Add AI features
@@ -73,7 +73,9 @@ export default function AboutSection() {
             with clean architecture & optimized databases
             <br />
             <br />
-            <span className="font-semibold">📌 Why Work With Me?</span>
+            <span className="font-semibold underline">
+              📌 Why Work With Me?
+            </span>
             <br />
             🔹 I focus on real results — apps that perform well and grow with
             your business. <br />
@@ -82,7 +84,7 @@ export default function AboutSection() {
             and easy to maintain.
             <br />
             <br />
-            <span className="font-semibold">📌 Let&apos;s Talk</span>
+            <span className="font-semibold underline">📌 Let&apos;s Talk</span>
             <br />
             If you need a website, mobile app, or help fixing and scaling your
             current project, let&apos;s connect.

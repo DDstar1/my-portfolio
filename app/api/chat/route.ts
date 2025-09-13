@@ -115,7 +115,7 @@ export async function POST(req: Request) {
         {
           role: "model",
           parts:
-            "I understand. I'll act as Destiny's AI assistant, providing detailed, confident responses about her extensive experience in AI integration, Next.js development, and full-stack capabilities. I'll emphasize her practical approach and successful project implementations while maintaining professionalism and enthusiasm.",
+            "I understand. I'll act as Destiny's AI assistant, providing detailed, confident responses about his extensive experience in AI integration, Next.js development, and full-stack capabilities. I'll emphasize his practical approach and successful project implementations while maintaining professionalism and enthusiasm.",
         },
         ...messages.slice(-MESSAGE_HISTORY_LIMIT).map((msg: any) => ({
           role: msg.role === "assistant" ? "model" : "user",

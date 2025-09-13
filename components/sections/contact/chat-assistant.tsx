@@ -68,7 +68,7 @@ export default function ChatAssistant() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Destiny's AI assistant. I can help you learn more about her skills, experience, or how she can help with your project. What would you like to know?",
+        "Hi! I'm Destiny's AI assistant. I can help you learn more about his skills, experience, or how he can help with your project. What would you like to know?",
       timestamp: new Date(),
     },
   ]);
@@ -204,7 +204,7 @@ export default function ChatAssistant() {
         {
           role: "assistant",
           content:
-            "Hi! I'm Destiny's AI assistant. I can help you learn more about her skills, experience, or how she can help with your project. What would you like to know?",
+            "Hi! I'm Destiny's AI assistant. I can help you learn more about his skills, experience, or how he can help with your project. What would you like to know?",
           timestamp: new Date(),
         },
       ]);
@@ -229,7 +229,7 @@ export default function ChatAssistant() {
   }, [confirmClear.timeoutId]);
 
   return (
-    <div className="flex flex-col h-[500px] max-h-[500px] bg-muted border rounded-2xl overflow-hidden">
+    <div className="flex flex-col h-[500px] max-h-[500px] bg-muted border rounded-2xl overflow-hidden w-full">
       <div className="flex justify-between items-center px-4 py-2 border-b bg-muted">
         <div className="flex items-center gap-2 text-muted-foreground">
           <Bot size={18} />
@@ -354,19 +354,19 @@ export default function ChatAssistant() {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="border-t p-4 ">
-        <form onSubmit={handleSubmit} className="flex gap-2">
+      <div className="border-t p-4 w-full">
+        <form onSubmit={handleSubmit} className="flex gap-2 justify-between">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask me anything..."
-            className="flex-1 bg-background rounded-lg px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className="w-[90%] bg-background rounded-lg px-4 py-2 border focus:outline-none focus:ring-2 focus:ring-primary/50"
             disabled={isTyping}
           />
           <button
             type="submit"
             disabled={isTyping || !input.trim()}
-            className="p-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-fit p-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send size={20} />
           </button>
