@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 // Optimize font loading by specifying only the subsets and display type needed
 const firaCode = Fira_Code({
@@ -93,6 +94,7 @@ export default function RootLayout({
       <body className={`${firaCode.className} ${firaCode.variable}`}>
         {children}
       </body>
+      <Analytics />
     </html>
   );
 }
