@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       "Full Stack Web & Mobile Developer specializing in Next.js, React, React Native, and AI Integration. Building scalable, high-performance apps.",
     images: [
       {
-        url: "/imgs/website.webp",
+        url: "/imgs/website.png",
         width: 1200,
         height: 630,
         alt: "Abhuluimen Destiny - Full Stack Web & Mobile Developer",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Abhuluimen Destiny | Full Stack Web & Mobile Developer",
     description:
       "Full Stack Web & Mobile Developer specializing in Next.js, React, React Native, and AI Integration.",
-    images: ["/imgs/website.webp"],
+    images: ["/imgs/website.png"],
     creator: "@abhuluimendestiny", // update if you have Twitter/X handle
   },
   robots: {

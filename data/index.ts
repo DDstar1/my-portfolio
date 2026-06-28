@@ -1,15 +1,15 @@
 import { Github, Linkedin, Youtube, BookOpen } from "lucide-react";
 
-import cw from "@/public/projects-imgs/cw.webp";
-import retrocech from "@/public/projects-imgs/retrocech.webp";
-import ecommerce from "@/public/projects-imgs/e-commerce.webp";
+import derivStrategies from "@/public/projects-imgs/deriv--strategy.png";
+import realEstate from "@/public/projects-imgs/real-estate.png";
+import wordpressConfigurator from "@/public/projects-imgs/3d--wordpress--config.png";
 import lukaskadela from "@/public/projects-imgs/lukaskadela.webp";
 
 const data = {
   home: {
     name: "Abhuluimen Destiny",
     description:
-      "I Build & Optimize #React & #ReactNative Websites and Mobile Apps, powered by #AI", // # -> for css style, _ -> create space, __ -> creates dash
+      "I Build & Ship #Full-Stack Websites and Apps with #Next.js, #FastAPI & #Supabase, powered by #AI", // # -> for css style, _ -> create space, __ -> creates dash
     cvLink: "#contact",
   },
   sidebar: {
@@ -31,26 +31,33 @@ const data = {
     projects: [
       {
         id: 1,
-        title: "Coder Woman Platform",
+        title: "Deriv Strategies",
         description:
-          "Platform to sell online courses, helping empower women in tech by making coding education accessible.\n\n Technologies Used: Next.js, React.js, CSS, Stripe API.",
-        image: cw,
-        previewLink: "https://coderwoman.com",
+          "Trading strategy marketplace and web app for Nigerian Deriv traders. Users submit and discover strategies, while bots automate execution on real/demo accounts with public leaderboards showing verifiable win rates, drawdown, and P&L. \n\n Technologies Used: Next.js, FastAPI, Supabase, Deriv API.",
+        image: derivStrategies,
+        previewLink: "https://github.com/DDstar1",
       },
       {
         id: 2,
-        title: "RetroCech Website",
+        title: "Real Estate Platform",
         description:
-          "A professional and visually appealing website that captures the vintage style of the business while ensuring smooth performance and easy navigation. \n\n Technologies Used: Next.js, Tailwind CSS, React.js.",
-        image: retrocech,
-        previewLink: "https://retrocech.com",
+          "Community-driven property web app turning every user into a paid referral agent. Agents earn commission on listings, with property tagging via junction tables powering an interactive server/client filter UI. \n\n Technologies Used: Next.js, Supabase, Paystack.",
+        image: realEstate,
+        previewLink: "https://github.com/DDstar1",
       },
-
+      {
+        id: 3,
+        title: "3D Product Configurator",
+        description:
+          "Interactive 3D product configurator embedded into a WordPress/WooCommerce e-commerce site, letting customers visualise interior doors and windows in real time before purchase. \n\n Technologies Used: Three.js, WordPress, WooCommerce.",
+        image: wordpressConfigurator,
+        previewLink: "https://github.com/DDstar1",
+      },
       {
         id: 4,
         title: "Personal Portfolio Website",
         description:
-          "A reliable and polished website that makes it easy for the expert to share their skills and impress potential clients or employers. \n\n Technologies Used: Next.js, React.js, CSS.",
+          "An AI-powered personal portfolio website with an interactive chat assistant, code-typing animations, and a contact form, built to showcase my work to clients and employers. \n\n Technologies Used: Next.js, React.js, Tailwind CSS.",
         image: lukaskadela,
         previewLink: "https://abhuluimendestiny.site/",
       },
