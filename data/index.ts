@@ -3,7 +3,7 @@ import { Github, Linkedin, Youtube, BookOpen } from "lucide-react";
 import derivStrategies from "@/public/projects-imgs/deriv--strategy.png";
 import realEstate from "@/public/projects-imgs/real-estate.png";
 import wordpressConfigurator from "@/public/projects-imgs/3d--wordpress--config.png";
-import lukaskadela from "@/public/projects-imgs/lukaskadela.webp";
+import portfolioSite from "@/public/imgs/website.png";
 
 const data = {
   home: {
@@ -58,7 +58,7 @@ const data = {
         title: "Personal Portfolio Website",
         description:
           "An AI-powered personal portfolio website with an interactive chat assistant, code-typing animations, and a contact form, built to showcase my work to clients and employers. \n\n Technologies Used: Next.js, React.js, Tailwind CSS.",
-        image: lukaskadela,
+        image: portfolioSite,
         previewLink: "https://abhuluimendestiny.site/",
       },
     ],
