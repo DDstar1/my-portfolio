@@ -35,7 +35,8 @@ const data = {
         description:
           "Trading strategy marketplace and web app for Nigerian Deriv traders. Users submit and discover strategies, while bots automate execution on real/demo accounts with public leaderboards showing verifiable win rates, drawdown, and P&L. \n\n Technologies Used: Next.js, FastAPI, Supabase, Deriv API.",
         image: derivStrategies,
-        previewLink: "https://github.com/DDstar1",
+        previewLink: "https://www.deriv-strategies.com.ng/",
+        githubLink: "https://github.com/DDstar1/deriv_strategy_tester",
       },
       {
         id: 2,
@@ -43,7 +44,8 @@ const data = {
         description:
           "Community-driven property web app turning every user into a paid referral agent. Agents earn commission on listings, with property tagging via junction tables powering an interactive server/client filter UI. \n\n Technologies Used: Next.js, Supabase, Paystack.",
         image: realEstate,
-        previewLink: "https://github.com/DDstar1",
+        previewLink: "https://real-estate-apps.vercel.app",
+        githubLink: "https://github.com/DDstar1/REAL_ESTATE_APPS",
       },
       {
         id: 3,
@@ -51,7 +53,9 @@ const data = {
         description:
           "Interactive 3D product configurator embedded into a WordPress/WooCommerce e-commerce site, letting customers visualise interior doors and windows in real time before purchase. \n\n Technologies Used: Three.js, WordPress, WooCommerce.",
         image: wordpressConfigurator,
-        previewLink: "https://github.com/DDstar1",
+        previewLink:
+          "https://innentuerenshop.paultec.de/produkt/elegant-alba-4-weisslack-inkl-lichtoeffnung-loe-3571-v-056-herholz-innentueren-3d/",
+        githubLink: "https://github.com/DDstar1/door_3d_configurator_nextJS",
       },
       {
         id: 4,
@@ -60,6 +64,7 @@ const data = {
           "An AI-powered personal portfolio website with an interactive chat assistant, code-typing animations, and a contact form, built to showcase my work to clients and employers. \n\n Technologies Used: Next.js, React.js, Tailwind CSS.",
         image: portfolioSite,
         previewLink: "https://abhuluimendestiny.site/",
+        githubLink: "https://github.com/DDstar1/my-portfolio",
       },
     ],
   },

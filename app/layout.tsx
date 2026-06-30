@@ -78,8 +78,8 @@ export const metadata: Metadata = {
     canonical: "https://abhuluimendestiny.com",
   },
   icons: {
-    icon: "/imgs/logo.webp",
-    apple: "/imgs/logo.webp",
+    icon: "/imgs/my_logo.png",
+    apple: "/imgs/my_logo.png",
   },
 };
 
