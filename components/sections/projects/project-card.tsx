@@ -67,10 +67,7 @@ export default function ProjectCard({ project, i, className }: props) {
 
       <div className="px-4 py-2 w-full">
         <h2 className="text-xl capitalize font-bold my-3">{project.title}</h2>
-        <p className="text-muted-foreground h-[150px] overflow-hidden whitespace-pre-line">
-          {project.description}
-        </p>
-        <div className="space-x-2 my-7">
+        <div className="space-x-2 mb-3">
           <Button asChild variant="secondary">
             <Link href={project.previewLink} target="_blank">
               Live view
@@ -84,6 +81,9 @@ export default function ProjectCard({ project, i, className }: props) {
             </Button>
           )}
         </div>
+        <p className="text-muted-foreground h-[150px] overflow-hidden whitespace-pre-line">
+          {project.description}
+        </p>
       </div>
     </div>
   );
