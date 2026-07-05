@@ -31,11 +31,11 @@ const data = {
     projects: [
       {
         id: 1,
-        title: "Deriv Strategies",
+        title: "StratVault",
         description:
-          "Trading strategy marketplace and web app for Nigerian Deriv traders. Users submit and discover strategies, while bots automate execution on real/demo accounts with public leaderboards showing verifiable win rates, drawdown, and P&L. \n\n Technologies Used: Next.js, FastAPI, Supabase, Deriv API.",
+          "Full-stack backtesting platform that re-codes viral YouTube trading strategies and tests them against 10+ years of 1-minute market data — showing honest win rates, drawdown, and profit factor, not cherry-picked highlights. Users tweak parameters and re-run backtests in-browser with an interactive equity curve and annotated price chart. \n\n Technologies Used: Next.js, FastAPI, Supabase, Python, Vercel, VPS (nginx, systemd).",
         image: derivStrategies,
-        previewLink: "https://www.deriv-strategies.com.ng/",
+        previewLink: "https://www.stratvault.xyz/",
         githubLink: "https://github.com/DDstar1/deriv_strategy_tester",
       },
       {

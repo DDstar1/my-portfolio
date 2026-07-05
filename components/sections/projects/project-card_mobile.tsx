@@ -105,7 +105,7 @@ export default function ProjectCardMobile({
             </Button>
           )}
         </div>
-        <p className="text-muted-foreground h-[150px] overflow-hidden whitespace-pre-line">
+        <p className="text-muted-foreground h-[200px] overflow-hidden whitespace-pre-line">
           {project.description}
         </p>
       </div>
