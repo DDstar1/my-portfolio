@@ -47,16 +47,18 @@ const data = {
         previewLink: "https://real-estate-apps.vercel.app",
         githubLink: "https://github.com/DDstar1/REAL_ESTATE_APPS",
       },
-      {
-        id: 3,
-        title: "3D Product Configurator",
-        description:
-          "Interactive 3D product configurator embedded into a WordPress/WooCommerce e-commerce site, letting customers visualise interior doors and windows in real time before purchase. \n\n Technologies Used: Three.js, WordPress, WooCommerce.",
-        image: wordpressConfigurator,
-        previewLink:
-          "https://innentuerenshop.paultec.de/produkt/elegant-alba-4-weisslack-inkl-lichtoeffnung-loe-3571-v-056-herholz-innentueren-3d/",
-        githubLink: "https://github.com/DDstar1/door_3d_configurator_nextJS",
-      },
+ /*
+{
+  id: 3,
+  title: "3D Product Configurator",
+  description:
+    "Interactive 3D product configurator embedded into a WordPress/WooCommerce e-commerce site, letting customers visualise interior doors and windows in real time before purchase. \n\n Technologies Used: Three.js, WordPress, WooCommerce.",
+  image: wordpressConfigurator,
+  previewLink:
+    "https://innentuerenshop.paultec.de/produkt/elegant-alba-4-weisslack-inkl-lichtoeffnung-loe-3571-v-056-herholz-innentueren-3d/",
+  githubLink: "https://github.com/DDstar1/door_3d_configurator_nextJS",
+}
+*/
       {
         id: 4,
         title: "Personal Portfolio Website",
