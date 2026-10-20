@@ -29,7 +29,7 @@ I work across both engineering and product: schema design, API contracts, paymen
 - 💻 **Responsive Design** - Optimized for all devices from mobile to desktop
 - 🎨 **Modern UI/UX** - Clean, professional interface with smooth animations
 - 🌙 **Dark Mode** - Sleek dark theme for optimal viewing
-- 📧 **Contact Form** - Integrated with Resend for reliable email delivery
+- 📧 **Direct Email** - Email Destiny at abhuluimendestiny@gmail.com using your email app
 - 🎯 **SEO Optimized** - Built-in metadata configuration
 
 ## Tech Stack
@@ -40,7 +40,7 @@ I work across both engineering and product: schema design, API contracts, paymen
 - **Animations**: Framer Motion, Lottie
 - **Form Handling**: React Hook Form with Zod validation
 - **UI Components**: shadcn/ui, Lucide React Icons
-- **Email Service**: Resend
+- **Contact**: Direct mailto link (no email service required)
 - **AI Integration**: Google Gemini AI
 - **Code Highlighting**: Prism React Renderer
 - **Deployment**: Vercel
@@ -65,8 +65,7 @@ I work across both engineering and product: schema design, API contracts, paymen
    Create a `.env.local` file with:
 
    ```bash
-   RESEND_API_KEY=your_resend_api_key
-   GOOGLE_API_KEY=your_gemini_api_key
+   GEMINI_API_KEY=your_gemini_api_key
    ```
 
 4. **Start the development server**
@@ -97,10 +96,9 @@ I work across both engineering and product: schema design, API contracts, paymen
 
 ## Deployment
 
-Deployed on Vercel. Required environment variables:
+Deployed on Vercel. The direct email link needs no configuration. The AI assistant requires:
 
-- `RESEND_API_KEY` - API key for the contact form's email service
-- `GOOGLE_API_KEY` - API key for the Gemini-powered chat assistant
+- `GEMINI_API_KEY` - API key for the Gemini-powered chat assistant (server-side only)
 
 ## Contact
 

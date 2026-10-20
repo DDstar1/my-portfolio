@@ -1,141 +1,83 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import data from "@/data";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-
-// Create a context string from your data
-const createContextFromData = () => {
-  const projects = data.projects.projects
-    .map((p) => `- ${p.title}: ${p.description}`)
-    .join("\n");
-
-  const skills = data.technologies.skills.map((s) => s.name).join(", ");
-
-  return `
-    About Destiny Abhuluimen:
-    - Full Stack Product Engineer specializing in Next.js, React, and AI Integration
-    - Over 5 years of experience in web development and 2 years of experience in AI implementation
-    - Email: ${data.contact.email}
-    
-    Core Expertise:
-    - Next.js & React Development: Building high-performance, scalable applications
-    - AI Integration Specialist: Implementing cutting-edge AI features in websites and mobile apps
-    - Full Stack Development: ${skills}
-    
-    AI Integration Capabilities:
-    1. Chatbots & Conversational AI:
-       - Custom AI assistants like this one
-       - Customer service automation
-       - Interactive FAQ systems
-       - Multi-language support
-    
-    2. Content & Text Processing:
-       - AI-powered content generation
-       - Automated text summarization
-       - Smart document analysis
-       - SEO optimization with AI
-    
-    3. Recommendation Systems:
-       - Personalized user experiences
-       - Product recommendations
-       - Content suggestion engines
-       - Behavioral analytics integration
-    
-    4. Process Automation:
-       - Workflow automation with AI
-       - Data extraction and processing
-       - Form automation
-       - Smart scheduling systems
-    
-    Notable AI Projects:
-    ${projects}
-    
-    AI Integration Process:
-    1. Requirements Analysis: Understanding specific AI needs
-    2. Solution Design: Choosing the right AI models and integration methods
-    3. Implementation: Seamless integration with existing systems
-    4. Testing & Optimization: Ensuring accuracy and performance
-    5. Monitoring & Maintenance: Continuous improvement of AI features
-    
-    Services:
-    - Custom AI Feature Development
-    - AI Model Integration
-    - Performance Optimization
-    - Scalability Planning
-    - AI Solution Consulting
-    
-    Additional Information:
-    - Experienced with multiple AI platforms: OpenAI, Google AI, Hugging Face
-    - Custom model training and fine-tuning capabilities
-    - Focus on practical, business-driven AI solutions
-    - Strong emphasis on ethical AI implementation
-    - Regular updates with latest AI technologies
-  `;
-};
-
-const MESSAGE_HISTORY_LIMIT = 5;
+const requestSchema = z.object({
+  messages: z.array(z.object({
+    role: z.enum(["user", "assistant"]),
+    content: z.string().trim().min(1).max(4000),
+  })).min(1).max(20),
+});
 
 export async function POST(req: Request) {
-  try {
-    const { messages } = await req.json();
-
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash",
-      generationConfig: {
-        temperature: 0.7,
-        topK: 1,
-        topP: 1,
-        maxOutputTokens: 2048,
-      },
-    });
-
-    const chat = model.startChat({
-      history: [
-        {
-          role: "user",
-          parts: `You are an AI assistant for Destiny Abhuluimen. Use the following information to help answer questions:
-            ${createContextFromData()}
-            
-            Guidelines:
-            Be enthusiastic and professional in tone.
-            Give specific, detailed examples from projects.
-            Highlight React Native (mobile apps) and Next.js/React (web apps) expertise.
-            Show confidence in AI integration (chatbots, automation, recommendations).
-            Emphasize practical, real-world applications of your work.
-            Keep responses clear and well-structured with bullet points or sections.
-            Always mention relevant experience and past projects.
-            Guide project inquiries to the contact form.
-            Stress expertise in:
-            React Native mobile development
-            Next.js & React for modern web apps
-            Advanced AI-driven solutions
-            Web automation & API integration using Selenium, Python, Make, and n8n`,
-        },
-        {
-          role: "model",
-          parts:
-            "I understand. I'll act as Destiny's AI assistant, providing detailed, confident responses about his extensive experience in AI integration, Next.js development, and full-stack capabilities. I'll emphasize his practical approach and successful project implementations while maintaining professionalism and enthusiasm.",
-        },
-        ...messages.slice(-MESSAGE_HISTORY_LIMIT).map((msg: any) => ({
-          role: msg.role === "assistant" ? "model" : "user",
-          parts: msg.content,
-        })),
-      ],
-    });
-
-    const result = await chat.sendMessage(
-      messages[messages.length - 1].content
-    );
-    const response = await result.response;
-    const text = response.text();
-
-    return NextResponse.json({ content: text });
-  } catch (error) {
-    console.error("Chat API Error:", error);
+  const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+  if (!apiKey) {
     return NextResponse.json(
-      { error: "Failed to get AI response" },
-      { status: 500 }
+      { error: `The AI assistant is unavailable right now. Please email ${data.contact.email}.` },
+      { status: 503 }
+    );
+  }
+
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Please send a valid message." }, { status: 400 });
+  }
+  const parsed = requestSchema.safeParse(body);
+  if (!parsed.success || parsed.data.messages.at(-1)?.role !== "user") {
+    return NextResponse.json({ error: "Please send a valid message." }, { status: 400 });
+  }
+
+  // Exclude the UI's introductory greeting and send the latest turn only once.
+  const messages = parsed.data.messages.slice(-9);
+  while (messages[0]?.role === "assistant") messages.shift();
+  const context = `You are Destiny Abhuluimen's portfolio assistant. Answer only from this public portfolio information. Be friendly, concise and honest; do not invent experience, results or credentials. For project inquiries, direct visitors to ${data.contact.email}.\n${JSON.stringify({
+    about: data.home,
+    projects: data.projects.projects,
+    skills: data.technologies.skills.map((skill) => skill.name),
+  })}`;
+
+  try {
+    const model = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: context }] },
+          contents: messages.map((message) => ({
+            role: message.role === "assistant" ? "model" : "user",
+            parts: [{ text: message.content }],
+          })),
+          generationConfig: { maxOutputTokens: 2048 },
+        }),
+        signal: AbortSignal.timeout(25000),
+      }
+    );
+    if (!response.ok) {
+      // Never log credentials, provider bodies or visitor messages.
+      console.error("Gemini request failed", { status: response.status });
+      return NextResponse.json(
+        { error: response.status === 429
+          ? `The AI assistant is busy. Please try again shortly or email ${data.contact.email}.`
+          : `The AI assistant is unavailable right now. Please email ${data.contact.email}.` },
+        { status: response.status === 429 ? 429 : 502 }
+      );
+    }
+    const result = await response.json();
+    const content = result.candidates?.[0]?.content?.parts
+      ?.filter((part: { text?: string; thought?: boolean }) => part.text && !part.thought)
+      .map((part: { text: string }) => part.text).join("\n");
+    if (!content) {
+      return NextResponse.json({ error: "I couldn’t answer that. Please try rephrasing your question." }, { status: 502 });
+    }
+    return NextResponse.json({ content });
+  } catch {
+    return NextResponse.json(
+      { error: `The AI assistant couldn’t connect. Please try again or email ${data.contact.email}.` },
+      { status: 502 }
     );
   }
 }

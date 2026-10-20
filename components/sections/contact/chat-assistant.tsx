@@ -108,9 +108,8 @@ export default function ChatAssistant() {
           }),
         });
 
-        if (!response.ok) throw new Error("Failed to get response");
-
         const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "The AI assistant is unavailable right now. Please email abhuluimendestiny@gmail.com.");
 
         const content = data.content.replace(/<[^>]*>/g, "");
 
@@ -129,7 +128,7 @@ export default function ChatAssistant() {
           {
             role: "assistant" as const,
             content:
-              "I apologize, but I'm having trouble connecting right now. Please try again or use the contact form.",
+              error instanceof Error ? error.message : "The AI assistant is unavailable right now. Please email abhuluimendestiny@gmail.com.",
             timestamp: new Date(),
           },
         ]);
