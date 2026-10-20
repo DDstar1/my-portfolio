@@ -5,6 +5,7 @@ import realEstate from "@/public/projects-imgs/real-estate.png";
 import wordpressConfigurator from "@/public/projects-imgs/3d--wordpress--config.png";
 import portfolioSite from "@/public/imgs/website.png";
 
+
 const data = {
   home: {
     name: "Abhuluimen Destiny",
@@ -29,6 +30,15 @@ const data = {
 
   projects: {
     projects: [
+      {
+        id: 5,
+        title: "ClipWeave — AI Video Creation Platform",
+        description:
+          "AI-powered platform for creators to generate and direct cinematic story videos. Built around an accessible clip-generation workflow with cloud GPU workers, video processing, and storage infrastructure. \n\n Technologies Used: Next.js, Supabase, Python, ComfyUI, RunPod, Vast.ai, Cloudflare R2, Vercel.",
+        image: "/projects-imgs/clipweave.svg",
+        previewLink: "https://clipweave.xyz/",
+        githubLink: "",
+      },
       {
         id: 1,
         title: "StratVault",
