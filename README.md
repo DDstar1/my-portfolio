@@ -10,7 +10,7 @@ I'm Destiny Abhuluimen, an independent full-stack developer and product builder 
 
 I work across both engineering and product: schema design, API contracts, payment integrations (Paystack, Stripe), UI/UX, and deployment — including building [GitPulse](https://github.com/DDstar1), a self-hosted GitHub webhook deployment manager as a lightweight alternative to Coolify.
 
-- 🌐 Website: [abhuluimendestiny.site](https://abhuluimendestiny.site)
+- 🌐 Website: [abhuluimendestiny.vercel.app](https://abhuluimendestiny.vercel.app)
 - 💻 GitHub: [@DDstar1](https://github.com/DDstar1)
 - 💼 LinkedIn: [Destiny Abhuluimen](https://www.linkedin.com/in/destiny-abhuluimen-20bb3726a)
 
@@ -50,8 +50,8 @@ I work across both engineering and product: schema design, API contracts, paymen
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/DDstar1/my-portfolio.git
-   cd my-portfolio
+   git clone https://github.com/DDstar1/abhuluimendestiny.git
+   cd abhuluimendestiny
    ```
 
 2. **Install dependencies**
@@ -106,7 +106,7 @@ Deployed on Vercel. Required environment variables:
 
 Destiny Abhuluimen
 
-- Website: [abhuluimendestiny.site](https://abhuluimendestiny.site)
+- Website: [abhuluimendestiny.vercel.app](https://abhuluimendestiny.vercel.app)
 - Email: abhuluimendestiny@gmail.com
 - GitHub: [@DDstar1](https://github.com/DDstar1)
 
