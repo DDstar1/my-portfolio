@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
-// Optimize font loading by specifying only the subsets and display type needed
-const firaCode = Fira_Code({
-  subsets: ["latin"],
+// Bundle Fira Code so builds do not depend on Google's font CSS response.
+const firaCode = localFont({
+  src: "./fonts/FiraCode.ttf",
   display: "swap", // Use swap to prevent layout shifts
   preload: true,
-  weight: ["400", "500", "600"],
+  weight: "300 700",
   variable: "--font-fira-code",
 });
 

@@ -12,7 +12,7 @@ type props = {
     id: number;
     title: string;
     description: string;
-    image: StaticImageData;
+    image: StaticImageData | string;
     githubLink?: string;
     previewLink: string;
   };

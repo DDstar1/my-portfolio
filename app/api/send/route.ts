@@ -1,10 +1,16 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import data from "@/data";
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json(
+      { error: "Contact email is temporarily unavailable" },
+      { status: 503 }
+    );
+  }
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await request.json();
     const { from_name, from_email, message } = body;
 
