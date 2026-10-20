@@ -16,6 +16,8 @@ I work across both engineering and product: schema design, API contracts, paymen
 
 ## Featured Projects
 
+- **[ClipWeave](https://clipweave.xyz/)** — AI-powered cinematic video generation and story creation platform for creators. Built with Next.js, Supabase, Python, ComfyUI, cloud GPU workers (RunPod/Vast.ai), Cloudflare R2, and Vercel.
+
 - **Deriv Strategies** — Trading strategy marketplace for Nigerian Deriv traders, with bot-automated execution and public leaderboards (Next.js, FastAPI, Supabase, Deriv API).
 - **Real Estate Platform** — Community-driven property platform with referral-agent commissions and interactive listing filters (Next.js, Supabase, Paystack).
 - **InkCraft by David** — Custom clothing print-on-demand app with a Fabric.js canvas designer (Next.js 14, Fabric.js, Supabase, Stripe, Resend).
