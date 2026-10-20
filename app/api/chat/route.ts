@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import data from "@/data";
 
+export const maxDuration = 60;
+
 const requestSchema = z.object({
   messages: z.array(z.object({
     role: z.enum(["user", "assistant"]),
@@ -51,9 +53,9 @@ export async function POST(req: Request) {
             role: message.role === "assistant" ? "model" : "user",
             parts: [{ text: message.content }],
           })),
-          generationConfig: { maxOutputTokens: 2048 },
+          generationConfig: { maxOutputTokens: 2048, thinkingConfig: { thinkingLevel: "low" } },
         }),
-        signal: AbortSignal.timeout(25000),
+        signal: AbortSignal.timeout(45000),
       }
     );
     if (!response.ok) {
@@ -74,7 +76,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "I couldn’t answer that. Please try rephrasing your question." }, { status: 502 });
     }
     return NextResponse.json({ content });
-  } catch {
+  } catch (error) {
+    console.error("Gemini connection failed", { type: error instanceof Error ? error.name : "UnknownError" });
     return NextResponse.json(
       { error: `The AI assistant couldn’t connect. Please try again or email ${data.contact.email}.` },
       { status: 502 }
