@@ -35,7 +35,7 @@ const data = {
         title: "ClipWeave — AI Video Creation Platform",
         description:
           "AI-powered platform for creators to generate and direct cinematic story videos. Built around an accessible clip-generation workflow with cloud GPU workers, video processing, and storage infrastructure. \n\n Technologies Used: Next.js, Supabase, Python, ComfyUI, RunPod, Vast.ai, Cloudflare R2, Vercel.",
-        image: "/projects-imgs/clipweave.svg",
+        image: "/projects-imgs/clipweave-homepage.png",
         previewLink: "https://clipweave.xyz/",
         githubLink: "",
       },
